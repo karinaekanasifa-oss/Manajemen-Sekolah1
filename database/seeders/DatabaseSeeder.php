@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
          // untuk memanggil semua seedernya
        $this->call([
             PengumumanSeeder::class,
+            JadwalPelajaranSeeder::class,
+            ProfilGuruSeeder::class,
         ]);
     }
 }
