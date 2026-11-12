@@ -1,7 +1,11 @@
 <aside class="sidebar">
-            <div class="brand">Sintesa</div>
-            <a href="#" class="nav-link">Beranda</a>
-             <a href="{{ route('pengumuman.table') }}" class="nav-link">Pengumuman</a>
-            <a href="{{ route('jadwalpelajaran.table') }}" class="nav-link active">Jadwal Pelajaran</a>
-             <a href="{{ route('profilguru.table') }}" class="nav-link">Profil Guru</a>
-        </aside>
+    <div class="brand">Sintesa</div>
+
+    {{-- Menu Guru --}}
+    <a href="{{ route('pengumuman.table') }}" class="nav-link">Pengumuman</a>
+    <a href="{{ route('jadwalpelajaran.table') }}" class="nav-link active">Jadwal Pelajaran</a>
+
+    {{-- Menu Siswa --}}
+    <a href="{{ route('siswa.table') }}" class="nav-link">Data Siswa</a>
+     <a href="{{ route('aspirasi.table') }}" class="nav-link">Aspirasi</a>
+</aside>

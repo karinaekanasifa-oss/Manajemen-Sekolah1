@@ -2,12 +2,12 @@
 <html lang="en">
 
 {{-- bagian head--}}
-@include('profilguru.partials.head')
+@include('aspirasi.partials.head')
 
 <body>
     <div class="app">
         {{-- bagian sidebar --}}
-        @include('profilguru.components.sidebar')
+        @include('aspirasi.components.sidebar')
 
             {{-- bagian konten --}}
             @yield('content')

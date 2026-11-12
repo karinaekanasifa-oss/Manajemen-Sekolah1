@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profil_gurus', function (Blueprint $table) {
+        Schema::create('aspirasis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_lengkap');
-            $table->integer('nip');
-            $table->string('bidang_studi');
-            $table->integer('no_telepon');
+            $table->string('nama_pengirim');
+            $table->string('kelas');
+            $table->text('isi_pesan');
+            $table->date('tanggal_kirim');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profil_gurus');
+        Schema::dropIfExists('aspirasis');
     }
 };

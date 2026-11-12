@@ -43,8 +43,8 @@
                                 <td>{{ $item->nama_guru }}</td>
                                 <td>{{ $item->kelas }}</td>
                                 <td>
-                                    <a class="btn btn-secondary" href="">Edit</a>
-                                    <form action="" method="POST"
+                                    <a class="btn btn-secondary" href="{{ route('jadwalpelajaran.edit', $item->id) }}">Edit</a>
+                                    <form action="{{ route('jadwalpelajaran.destroy', $item->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')

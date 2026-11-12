@@ -57,21 +57,21 @@ class JadwalPelajaranController extends Controller
         return view('jadwalpelajaran.pages.update', compact('jadwal_pelajarans'));
     }
 
-    public function update(Request $request, JadwalPelajaran $jadwal_pelajarans)
+   public function update(Request $request, JadwalPelajaran $jadwal_pelajarans)
     {
         // Validasi data inputan
         $request->validate([
             'hari' => 'required|string|max:255',
-            'jam_mulai' => 'required|date_format:H:i',
-            'jam_selesai' => 'required|date_format:H:i',
+            'jam_mulai' => 'required',
+            'jam_selesai' => 'required',
             'mata_pelajaran' => 'required|string|max:255',
             'nama_guru' => 'required|string|max:255',
             'kelas' => 'required|string|max:255',
         ]);
 
-        // Update data di database menggunakan Model Pengumuman
+        // Update data di database
         $jadwal_pelajarans->update([
-             'hari' => $request->hari,
+            'hari' => $request->hari,
             'jam_mulai' => $request->jam_mulai,
             'jam_selesai' => $request->jam_selesai,
             'mata_pelajaran' => $request->mata_pelajaran,
@@ -79,10 +79,17 @@ class JadwalPelajaranController extends Controller
             'kelas' => $request->kelas,
         ]);
 
-        // Jika berhasil, kembalikan ke halaman daftar pengumuman
-        return redirect()->route('jadwalpelajaran.table')->with('success', 'Pengumuman berhasil diperbarui!');
+        // Ubah teks 'Pengumuman' menjadi 'Jadwal pelajaran'
+        return redirect()->route('jadwalpelajaran.table')->with('success', 'Jadwal pelajaran berhasil diperbarui!');
     }
 
+     //destroy untuk menghapus data
+    public function destroy(JadwalPelajaran $jadwal_pelajarans)
+    {
+        $jadwal_pelajarans->delete();
 
+        // Ubah teks 'Pengumuman' menjadi 'Jadwal pelajaran'
+        return redirect()->route('jadwalpelajaran.table')->with('success', 'Jadwal pelajaran berhasil dihapus!');
+    }
 
 }

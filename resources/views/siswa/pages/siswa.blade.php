@@ -1,20 +1,20 @@
-@extends('profilguru.index')
+@extends('siswa.index')
 
 @section('content')
     <main class="main">
         <header class="page-header">
             <div>
-                <h1>Profil Guru</h1>
-                <p class="subtitle">Kelola data profil guru.</p>
+                <h1>Data Siswa</h1>
+                <p class="subtitle">Kelola data siswa.</p>
             </div>
-            <a href="" class="btn btn-primary">
-                + Tambah Profil
+            <a href="{{ route('siswa.create') }}" class="btn btn-primary">
+                + Tambah Siswa
             </a>
         </header>
 
         <section class="card">
             <div class="toolbar">
-                <input type="search" id="searchProfilGuru" class="search" placeholder="Cari nama guru...">
+                <input type="search" id="searchSiswa" class="search" placeholder="Cari nama siswa...">
             </div>
 
             <div class="table-wrap">
@@ -22,25 +22,25 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Nama Lengkap</th>
-                            <th>Nip</th>
-                            <th>Bidang Studi</th>
-                            <th>No Telpon</th>
+                            <th>Nama Siswa</th>
+                            <th>Nisn</th>
+                            <th>Kelas</th>
+                            <th>ALamat Rumah</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="daftarProfilGuru">
-                        @foreach ($profil_gurus as $item)
+                        @foreach ($siswas as $item)
                             <tr>
                                 {{-- loop buat angka urut dari 1 klo ada data yg ilang langsung ke urut --}}
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_lengkap }}</td>
-                                <td>{{ $item->nip }}</td>
-                                <td>{{ $item->bidang_studi }}</td>
-                                <td>{{ $item->no_telepon }}</td>
+                                <td>{{ $item->nama_siswa }}</td>
+                                <td>{{ $item->nisn }}</td>
+                                <td>{{ $item->kelas }}</td>
+                                <td>{{ $item->alamat_rumah }}</td>
                                 <td>
-                                    <a class="btn btn-secondary" href="">Edit</a>
-                                    <form action="" method="POST"
+                                    <a class="btn btn-secondary" href="{{ route('siswa.edit', $item->id) }}">Edit</a>
+                                    <form action="{{ route('siswa.destroy', $item->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
                                         @method('DELETE')
