@@ -19,7 +19,14 @@ class UserSeeder extends Seeder
             'email' => 'karina@gmail.com',
             'password' => Hash::make('bismillah'),
             'role' => 'Guru'
+        ]);
 
+        // Tambahan akun untuk Siswa
+        User::create([
+            'name' => 'Siswa Test',
+            'email' => 'siswa@gmail.com',
+            'password' => Hash::make('bismillah'),
+            'role' => 'Siswa'
         ]);
     }
 }
